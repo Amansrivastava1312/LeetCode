@@ -1,16 +1,18 @@
 class Solution {
     public int lengthOfLastWord(String s) {
-        int curLen = 0;
-        int lastLen = 0;
-        for (int i = 0; i < s.length(); i ++) {
+        int cur = 0;
+        int last = 0;
+        for (int i = s.length()-1; i >= 0; i --) {
             char c = s.charAt(i);
             if (c != ' ') {
-                curLen += 1;
-                lastLen = curLen;
+                cur += 1;
+                last = cur;
             } else { 
-                curLen = 0;
+                if(last>0)
+                    return last;
+                cur = 0;
             }
         }
-        return lastLen;
+        return last;
     }
 }
