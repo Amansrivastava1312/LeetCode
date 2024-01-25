@@ -29,12 +29,12 @@ class Solution {
         ListNode slow = head;
         ListNode fast = head;
         
-        while(fast!=null && fast.next!=null ){
+        while(fast.next!=null && fast.next.next!=null ){
             slow=slow.next;
             fast=fast.next.next;
         }
         
-        ListNode newHead = reverse(slow);
+        ListNode newHead = reverse(slow.next);
         
         while(newHead!=null){
             if(head.val!=newHead.val)return false;
